@@ -13,8 +13,8 @@ const EventDetailPage: React.FC<Props> = () => {
   
   const router = useRouter();
 
-  const eventId = router.query.eventId;
-  const event: EventType = getEventById(eventId);
+  const eventId = router.query.eventId!;
+  const event: EventType | undefined = getEventById(eventId);
 
   if (!event) {
     return (

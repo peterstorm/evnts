@@ -13,12 +13,12 @@ const EventSearch: React.FC<Props> = ({ onSearch }) => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (yearInputRef.current && monhtInputRef.current) {
-      const selectedYear = yearInputRef.current.value;
-      const selectedMonth = monhtInputRef.current.value;
+    // @ts-ignore
+    const selectedYear = yearInputRef.current.value;
+    // @ts-ignore
+    const selectedMonth = monhtInputRef.current.value;
 
-      onSearch(selectedYear, selectedMonth);
-    }
+    onSearch(selectedYear, selectedMonth);
   }
 
   return (

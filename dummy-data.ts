@@ -1,3 +1,5 @@
+import EventType from "./domain/events";
+
 const DUMMY_EVENTS: EventType[] = [
   {
     id: 'e1',
@@ -39,7 +41,12 @@ export function getAllEvents() {
   return DUMMY_EVENTS;
 }
 
-export function getFilteredEvents(dateFilter) {
+type DateFilter = {
+  year: number;
+  month: number;
+}
+
+export function getFilteredEvents(dateFilter: DateFilter) {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {
@@ -50,6 +57,6 @@ export function getFilteredEvents(dateFilter) {
   return filteredEvents;
 }
 
-export function getEventById(id) {
+export function getEventById(id: string | string[]) {
   return DUMMY_EVENTS.find((event) => event.id === id);
 }
